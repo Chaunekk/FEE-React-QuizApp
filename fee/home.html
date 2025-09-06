@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz App - Home</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-primary" href="#">Quizzes</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" 
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="quizzes.html">Quizzes</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+        <div id="authButtons">
+          <a href="#" class="btn btn-outline-primary btn-sm me-2">Login</a>
+          <a href="#" class="btn btn-primary btn-sm">Register</a>
+        </div>
+        <div id="userMenu" class="dropdown d-none">
+          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" 
+             id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            Cong Dinh
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Change Password</a></li>
+            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="container py-5 d-flex flex-lg-row flex-column align-items-center">
+  <div class="col-lg-6">
+    <h1 class="fw-bold">Welcome to Quiz App</h1>
+    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Sed malesuada nunc non lacinia fermentum.</p>
+    <button class="btn btn-primary">Take a Quiz</button>
+  </div>
+  <div class="col-lg-6 text-center mt-4 mt-lg-0">
+    <!-- ảnh hero -->
+    <img src="assets/images/img0.jpg" alt="Quiz" class="img-fluid" style="max-width: 250px;">
+  </div>
+</section>
+
+<!-- QUIZZES -->
+<section class="container py-5 text-center">
+  <h2 class="fw-bold mb-4">QUIZZES</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="assets/images/img1.jpg" class="card-img-top quiz-img" alt="Quiz 1">
+        <div class="card-body">
+          <h5 class="card-title">Capitals of Country</h5>
+          <p class="card-text">Test your knowledge of country capitals</p>
+          <button class="btn btn-primary w-100">Start</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="assets/images/img2.jpg" class="card-img-top quiz-img" alt="Quiz 2">
+        <div class="card-body">
+          <h5 class="card-title">Capitals of Country</h5>
+          <p class="card-text">Test your knowledge of country capitals</p>
+          <button class="btn btn-primary w-100">Start</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100">
+        <img src="assets/images/img3.jpg" class="card-img-top quiz-img" alt="Quiz 3">
+        <div class="card-body">
+          <h5 class="card-title">Capitals of Country</h5>
+          <p class="card-text">Test your knowledge of country capitals</p>
+          <button class="btn btn-primary w-100">Start</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <!-- FOOTER -->
+  <footer class="bg-light border-top py-5">
+    <div class="container d-flex flex-wrap justify-content-between">
+      <div class="col-md-4 mb-3">
+        <h4 class="fw-bold text-primary">Quizzes</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor.</p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <h5>Menu</h5>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-decoration-none text-dark">Home</a></li>
+          <li><a href="#" class="text-decoration-none text-dark">Quizzes</a></li>
+          <li><a href="about.html" class="text-decoration-none text-dark">About</a></li>
+          <li><a href="#" class="text-decoration-none text-dark">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4 mb-3">
+        <h5>Contact</h5>
+        <p>📧 chaunekk1904@gmail.com</p>
+        <p>📞 +84 886 600 419</p>
+        <p>📍 18 Thanh Binh, Mo Lao, Ha Dong, Ha Noi</p>
+      </div>
+    </div>
+    <div class="text-center text-muted mt-3">© May 2024 - ReactJS 19</div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

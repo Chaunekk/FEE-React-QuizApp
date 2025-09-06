@@ -1,0 +1,37 @@
+
+/* style.css */
+/* Import Google Fonts */
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+/* Ảnh trong quiz card */
+.quiz-img {
+  height: 200px;          /* Chiều cao cố định */
+  object-fit: cover;      /* Crop ảnh cho cân đối */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Ảnh Hero giữ nguyên tỉ lệ */
+.hero-img img {
+  max-width: 250px;
+  height: auto;
+}
+
+/* Header logo */
+.navbar-brand span {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+/* Tiêu đề chính */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+}
+
+/* Đoạn văn */
+p {
+  font-weight: 400;
+  line-height: 1.6;
+}
