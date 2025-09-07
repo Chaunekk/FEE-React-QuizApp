@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="d-flex">
+  <!-- SIDEBAR -->
+  <aside class="bg-light border-end p-3" style="width: 250px; min-height: 100vh;">
+    <h5 class="fw-bold mb-4">Menu</h5>
+    <ul class="nav flex-column">
+      <li class="nav-item"><a href="quiz-management.html" class="nav-link"><i class="bi bi-list-task me-2"></i> Quiz Management</a></li>
+      <li class="nav-item"><a href="question-management.html" class="nav-link"><i class="bi bi-question-circle me-2"></i> Question Management</a></li>
+      <li class="nav-item"><a href="user-management.html" class="nav-link"><i class="bi bi-people me-2"></i> User Management</a></li>
+      <li class="nav-item"><a href="role-management.html" class="nav-link"><i class="bi bi-shield-lock me-2"></i> Role Management</a></li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-fill p-4">
+    <!-- HEADER -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h4 class="fw-bold">Quiz Management</h4>
+      <div>
+        <a href="home.html" class="me-3">Home</a>
+        <a href="quizzes.html" class="me-3">Quizzes</a>
+        <a href="management.html" class="me-3">Management</a>
+        <a href="about.html" class="me-3">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <img src="assets/images/avatar.png" alt="user" class="rounded-circle" width="40">
+    </div>
+
+    <!-- FILTER -->
+    <div class="card mb-4">
+      <div class="card-body d-flex align-items-end gap-3">
+        <div class="flex-grow-1">
+          <label class="form-label">Name</label>
+          <input type="text" class="form-control" placeholder="Enter role name to search">
+        </div>
+        <div>
+          <label class="form-label">Status</label><br>
+          <input type="checkbox"> Active
+        </div>
+        <div class="ms-auto">
+          <button class="btn btn-secondary me-2">Clear</button>
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUIZ LIST -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3">Quiz List</h5>
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Header</th>
+              <th>Description</th>
+              <th>Duration</th>
+              <th>Questions</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="assets/images/quiz1.jpg" width="60"></td>
+              <td>Capitals of Country</td>
+              <td>15m</td>
+              <td>7</td>
+              <td>Yes</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">✏️</button>
+                <button class="btn btn-sm btn-outline-danger">🗑️</button>
+              </td>
+            </tr>
+            <tr>
+              <td><img src="assets/images/quiz2.jpg" width="60"></td>
+              <td>Inventors and Inventions</td>
+              <td>20m</td>
+              <td>10</td>
+              <td>Yes</td>
+              <td>
+                <button class="btn btn-sm btn-outline-primary">✏️</button>
+                <button class="btn btn-sm btn-outline-danger">🗑️</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-between align-items-center">
+          <div>Items per page:
+            <select class="form-select d-inline-block w-auto">
+              <option>10</option>
+              <option>20</option>
+              <option>50</option>
+            </select>
+          </div>
+          <nav>
+            <ul class="pagination mb-0">
+              <li class="page-item"><a class="page-link" href="#">«</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">»</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD QUIZ -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3">Add Quiz</h5>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Title</label>
+            <input type="text" class="form-control" placeholder="Enter quiz title">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" placeholder="Enter description"></textarea>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Duration</label>
+            <input type="text" class="form-control" placeholder="Enter quiz duration">
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Thumbnail URL</label>
+            <input type="text" class="form-control" placeholder="Enter thumbnail URL">
+          </div>
+          <div class="col-md-4 d-flex align-items-end">
+            <div>
+              <input type="checkbox" id="quizActive"> <label for="quizActive">Active</label>
+            </div>
+          </div>
+          <div class="col-12 d-flex justify-content-end gap-2">
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- QUESTION LIST -->
+    <div class="card mb-4">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3">Question List</h5>
+        <table class="table table-bordered align-middle">
+          <thead class="table-light">
+            <tr>
+              <th>Content</th>
+              <th>Type</th>
+              <th>Answers</th>
+              <th>Order</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Who is the inventor of the airplane?</td>
+              <td>MultipleChoice</td>
+              <td>4</td>
+              <td>1</td>
+              <td>Yes</td>
+              <td><button class="btn btn-sm btn-outline-danger">🗑️</button></td>
+            </tr>
+            <tr>
+              <td>What is the capital of France?</td>
+              <td>SingleChoice</td>
+              <td>4</td>
+              <td>4</td>
+              <td>Yes</td>
+              <td><button class="btn btn-sm btn-outline-danger">🗑️</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ADD QUESTION -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="fw-bold mb-3">Add Question</h5>
+        <form class="row g-3">
+          <div class="col-md-6">
+            <label class="form-label">Question</label>
+            <select class="form-select">
+              <option>Select Question Type</option>
+              <option>MultipleChoice</option>
+              <option>SingleChoice</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Order</label>
+            <input type="number" class="form-control" placeholder="Enter order of question in quiz">
+          </div>
+          <div class="col-12 d-flex justify-content-end gap-2">
+            <button type="reset" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-light border-top py-4 mt-4">
+  <div class="container d-flex justify-content-between">
+    <div>
+      <h5 class="fw-bold text-primary">Quizzes</h5>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <div>
+      <h6>Menu</h6>
+      <ul class="list-unstyled">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="quizzes.html">Quizzes</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Contact</h6>
+      <p>📧 email@domain.com</p>
+      <p>📞 +84 944 551 356</p>
+      <p>📍 Ha Noi, Viet Nam</p>
+    </div>
+  </div>
+  <div class="text-center text-muted mt-3">© May 2024 - ReactJS 19</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="assets/js/script.js"></script>
+</body>
+</html>
