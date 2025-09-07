@@ -35,3 +35,24 @@ p {
   font-weight: 400;
   line-height: 1.6;
 }
+/* Sidebar */
+aside {
+  min-height: 100vh;
+}
+
+aside .nav-link {
+  color: #333;
+  padding: 8px 0;
+}
+
+aside .nav-link.active,
+aside .nav-link:hover {
+  color: #0d6efd;
+  font-weight: 600;
+}
+
+/* Table */
+.table th, .table td {
+  vertical-align: middle;
+  text-align: center;
+}
