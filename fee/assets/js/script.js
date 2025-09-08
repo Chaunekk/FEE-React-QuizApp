@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const quizCardsContainer = document.getElementById('quizCardsContainer');
     const managementLink = document.querySelector('a[href="user-management.html"]');
     const searchName = document.getElementById('searchName');
+    const searchContent = document.getElementById('searchContent');
     const statusCheck = document.getElementById('statusCheck');
     const clearSearch = document.getElementById('clearSearch');
     const searchBtn = document.getElementById('searchBtn');
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const addQuizForm = document.getElementById('addQuizForm');
     const editQuizForm = document.getElementById('editQuizForm');
     const addQuestionForm = document.getElementById('addQuestionForm');
+    const editQuestionForm = document.getElementById('editQuestionForm');
 
     // State Management
     let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -142,16 +144,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Search Form Handling (for user-management.html and quiz-management.html)
+    // Search Form Handling (for user-management.html, quiz-management.html, question-management.html)
     if (searchBtn && clearSearch) {
         searchBtn.addEventListener('click', () => {
-            const name = searchName.value;
+            const name = searchName ? searchName.value : (searchContent ? searchContent.value : '');
             const status = statusCheck.checked;
             console.log('Search:', { name, status });
             // Add search logic here
         });
         clearSearch.addEventListener('click', () => {
-            searchName.value = '';
+            if (searchName) searchName.value = '';
+            if (searchContent) searchContent.value = '';
             statusCheck.checked = true;
         });
     }
@@ -221,8 +224,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Question Management Interactions (for quiz-management.html)
+    // Question Management Interactions (for question-management.html)
     if (questionTable) {
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const row = button.closest('tr');
+                const form = document.getElementById('editQuestionForm');
+                if (form) {
+                    form.querySelector('input[placeholder="Enter question content"]').value = row.cells[0].textContent;
+                    form.querySelector('#editQuestionType').value = row.cells[1].textContent;
+                    form.querySelector('input[placeholder="Enter number of answers"]').value = row.cells[2].textContent;
+                    form.querySelector('input[placeholder="Enter order of question"]').value = row.cells[3].textContent;
+                    form.querySelector('#editQuestionActive').checked = row.cells[4].textContent === 'Yes';
+                }
+            });
+        });
+
         document.querySelectorAll('.delete-btn').forEach(button => {
             button.addEventListener('click', () => {
                 if (confirm('Are you sure you want to delete this question?')) {
@@ -232,14 +249,23 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Add Question Form Handling (for quiz-management.html)
+    // Add Question Form Handling (for question-management.html)
     if (addQuestionForm) {
         addQuestionForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const type = document.getElementById('questionType').value;
-            const order = document.getElementById('questionOrder').value;
-            console.log('Add Question:', { type, order });
+            const formData = new FormData(addQuestionForm);
+            console.log('Add Question:', Object.fromEntries(formData));
             bootstrap.Modal.getInstance(document.getElementById('addQuestionModal')).hide();
+        });
+    }
+
+    // Edit Question Form Handling (for question-management.html)
+    if (editQuestionForm) {
+        editQuestionForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(editQuestionForm);
+            console.log('Edit Question:', Object.fromEntries(formData));
+            bootstrap.Modal.getInstance(document.getElementById('editQuestionModal')).hide();
         });
     }
 

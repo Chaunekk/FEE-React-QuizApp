@@ -1,89 +1,10 @@
 body {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f5f5;
 }
 
 .navbar-brand {
-    font-size: 1.5rem;
-}
-
-.quiz-img {
-    height: 180px; /* Adjust as needed */
-    object-fit: cover;
-}
-
-/* Custom styles for hero section image, if not using a specific image file */
-.hero-image-placeholder {
-    width: 250px;
-    height: 250px;
-    background-color: #f0f0f0; /* Light gray background */
-    border-radius: 50%; /* Circular shape */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3rem;
-    color: #0d6efd; /* Bootstrap primary color */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin: 0 auto; /* Center the image */
-}
-
-/* Tùy chỉnh thêm cho phần avatar */
-#userMenu .rounded-circle {
-    border: 1px solid #ddd;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f5f5;
-}
-
-.navbar-brand img {
-  border-radius: 50%;
-}
-
-.nav-link i {
-  margin-right: 8px;
-}
-
-.card {
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.table thead th {
-  background-color: #f8f9fa;
-}
-
-.table td, .table th {
-  vertical-align: middle;
-}
-
-.btn-sm i {
-  font-size: 1rem;
-}
-
-aside {
-  position: sticky;
-  top: 0;
-}
-
-.pagination .page-link {
-  color: #007bff;
-}
-
-.pagination .page-item.active .page-link {
-  background-color: #007bff;
-  border-color: #007bff;
-}
-
-.modal-content {
-  border-radius: 10px;
-}
-
-footer {
-  background-color: #f8f9fa;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f5f5f5;
+  font-size: 1.5rem;
 }
 
 .navbar-brand img {
@@ -138,7 +59,71 @@ footer {
   object-fit: cover;
 }
 
-#quizTable td:first-child img {
+#quizTable td:first-child img,
+#questionTable td:first-child img {
   width: 60px;
   height: 60px;
+}
+
+.quiz-img {
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Custom styles for hero section image, if not using a specific image file */
+.hero-image-placeholder {
+  width: 250px;
+  height: 250px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: #0d6efd;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0 auto;
+}
+
+/* Customize avatar in user menu */
+#userMenu .rounded-circle {
+  border: 1px solid #ddd;
+}
+
+/* Question Management Specific Styles */
+#questionTable {
+  width: 100%;
+}
+
+#questionTable th {
+  white-space: nowrap;
+}
+
+#questionTable td {
+  word-wrap: break-word;
+  max-width: 200px;
+}
+
+#questionTable .action-column {
+  width: 120px;
+}
+
+#questionTable .edit-btn,
+#questionTable .delete-btn {
+  margin-right: 5px;
+}
+
+#addQuestionForm .form-label,
+#editQuestionForm .form-label {
+  font-weight: 500;
+}
+
+#addQuestionForm .form-control,
+#editQuestionForm .form-control {
+  border-radius: 5px;
+}
+
+#addQuestionForm .form-check-label,
+#editQuestionForm .form-check-label {
+  margin-left: 5px;
 }
