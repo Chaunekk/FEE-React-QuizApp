@@ -1,58 +1,32 @@
-
-/* style.css */
-/* Import Google Fonts */
 body {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
+    font-family: 'Poppins', sans-serif;
 }
-/* Ảnh trong quiz card */
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
 .quiz-img {
-  height: 200px;          /* Chiều cao cố định */
-  object-fit: cover;      /* Crop ảnh cho cân đối */
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+    height: 180px; /* Adjust as needed */
+    object-fit: cover;
 }
 
-/* Ảnh Hero giữ nguyên tỉ lệ */
-.hero-img img {
-  max-width: 250px;
-  height: auto;
+/* Custom styles for hero section image, if not using a specific image file */
+.hero-image-placeholder {
+    width: 250px;
+    height: 250px;
+    background-color: #f0f0f0; /* Light gray background */
+    border-radius: 50%; /* Circular shape */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #0d6efd; /* Bootstrap primary color */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 0 auto; /* Center the image */
 }
 
-/* Header logo */
-.navbar-brand span {
-  font-weight: 700;
-  font-size: 1.5rem;
-}
-
-/* Tiêu đề chính */
-h1, h2, h3, h4, h5 {
-  font-weight: 600;
-}
-
-/* Đoạn văn */
-p {
-  font-weight: 400;
-  line-height: 1.6;
-}
-/* Sidebar */
-aside {
-  min-height: 100vh;
-}
-
-aside .nav-link {
-  color: #333;
-  padding: 8px 0;
-}
-
-aside .nav-link.active,
-aside .nav-link:hover {
-  color: #0d6efd;
-  font-weight: 600;
-}
-
-/* Table */
-.table th, .table td {
-  vertical-align: middle;
-  text-align: center;
+/* Tùy chỉnh thêm cho phần avatar */
+#userMenu .rounded-circle {
+    border: 1px solid #ddd;
 }

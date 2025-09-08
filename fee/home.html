@@ -25,20 +25,22 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="quizzes.html">Quizzes</a></li>
+          <li class="nav-item d-none" id="managementLink"><a class="nav-link" href="quizManagement.html">Management</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         </ul>
-        <div id="authButtons">
+        <div id="authButtons" class="d-flex">
           <a href="#" class="btn btn-outline-primary btn-sm me-2" id="loginBtn" data-bs-toggle="modal"
             data-bs-target="#loginModal">Login</a>
           <a href="#" class="btn btn-primary btn-sm">Register</a>
         </div>
         <div id="userMenu" class="dropdown d-none">
-          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="userDropdown"
+          <a class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center" href="#" role="button" id="userDropdown"
             data-bs-toggle="dropdown" aria-expanded="false">
-            Lan Chau
+            <img src="assets/images/user-avatar.png" alt="User Avatar" class="rounded-circle me-2" style="width: 24px; height: 24px;">
+            <span id="usernameDisplay">Lan Chau</span>
           </a>
           <ul class="dropdown-menu dropdown-menu-end">
             <li><a class="dropdown-item" href="#">Change Password</a></li>
@@ -51,52 +53,23 @@
 
   <!-- HERO -->
   <section class="container py-5 d-flex flex-lg-row flex-column align-items-center">
-    <div class="col-lg-6">
+    <div class="col-lg-6 text-lg-start text-center">
       <h1 class="fw-bold">Welcome to Quiz App</h1>
       <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Sed malesuada nunc non lacinia fermentum.</p>
-      <button class="btn btn-primary">Take a Quiz</button>
+        Sed malesuada nunc non lacinia fermentum, nunc sapien ultricies sapien, nec tincidunt nunc nec libero. Nullamlorem ipsum dolor sit amet, consectetur adipiscing elit. Sed malesuada, nunc non lacinia fermentum.</p>
+      <button class="btn btn-primary mt-3">Take a Quiz</button>
     </div>
     <div class="col-lg-6 text-center mt-4 mt-lg-0">
       <!-- ảnh hero -->
-      <img src="assets/images/img0.jpg" alt="Quiz" class="img-fluid" style="max-width: 250px;">
+      <img src="assets/images/quiz-hero.png" alt="Quiz" class="img-fluid" style="max-width: 400px;">
     </div>
   </section>
 
   <!-- QUIZZES -->
   <section class="container py-5 text-center">
     <h2 class="fw-bold mb-4">QUIZZES</h2>
-    <div class="row g-4">
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="assets/images/img1.jpg" class="card-img-top quiz-img" alt="Quiz 1">
-          <div class="card-body">
-            <h5 class="card-title">Capitals of Country</h5>
-            <p class="card-text">Test your knowledge of country capitals</p>
-            <button class="btn btn-primary w-100">Start</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="assets/images/img2.jpg" class="card-img-top quiz-img" alt="Quiz 2">
-          <div class="card-body">
-            <h5 class="card-title">Capitals of Country</h5>
-            <p class="card-text">Test your knowledge of country capitals</p>
-            <button class="btn btn-primary w-100">Start</button>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card h-100">
-          <img src="assets/images/img3.jpg" class="card-img-top quiz-img" alt="Quiz 3">
-          <div class="card-body">
-            <h5 class="card-title">Capitals of Country</h5>
-            <p class="card-text">Test your knowledge of country capitals</p>
-            <button class="btn btn-primary w-100">Start</button>
-          </div>
-        </div>
-      </div>
+    <div class="row g-4" id="quizCardsContainer">
+      <!-- Quiz cards will be loaded here by JavaScript -->
     </div>
   </section>
 
@@ -111,24 +84,22 @@
         <h5>Menu</h5>
         <ul class="list-unstyled">
           <li><a href="home.html" class="text-decoration-none text-dark">Home</a></li>
-          <li><a href="#" class="text-decoration-none text-dark">Quizzes</a></li>
+          <li><a href="quizzes.html" class="text-decoration-none text-dark">Quizzes</a></li>
           <li><a href="about.html" class="text-decoration-none text-dark">About</a></li>
           <li><a href="#" class="text-decoration-none text-dark">Contact</a></li>
         </ul>
       </div>
       <div class="col-md-4 mb-3">
         <h5>Contact</h5>
-        <p>📧 chaunekk1904@gmail.com</p>
-        <p>📞 +84 886 600 419</p>
-        <p>📍 18 Thanh Binh, Mo Lao, Ha Dong, Ha Noi</p>
+        <p>📧 congdinh0202@gmail.com</p>
+        <p>📞 +84 944 551 308</p>
+        <p>📍 123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</p>
       </div>
     </div>
     <div class="text-center text-muted mt-3">© May 2024 - ReactJS 19</div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/script.js"></script>
+  <!-- Login Modal -->
   <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -152,6 +123,10 @@
       </div>
     </div>
   </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>
