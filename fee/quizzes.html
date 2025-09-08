@@ -9,13 +9,20 @@
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .navbar-brand img, .footer-logo { border-radius: 50%; width: 40px; height: 40px; }
+    .quiz-img { object-fit: cover; height: 200px; }
+    .card { border: none; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .card-title { font-size: 1.2rem; }
+    footer { background-color: #f8f9fa; }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="home.html">
-        <img src="assets/images/img0.jpg" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+        <img src="assets/images/img0.jpg" alt="Logo" class="me-2">
         <span class="fw-bold text-primary">Quizzes</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
@@ -23,12 +30,11 @@
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="quizzes.html">Quizzes</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="userManagement.html">Management</a></li>
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
         </ul>
@@ -53,7 +59,7 @@
   <!-- QUIZ SEARCH BAR -->
   <section class="container py-5 text-center">
     <h2 class="fw-bold mb-4">Take a Quiz</h2>
-    <div class="input-group mb-4">
+    <div class="input-group mb-4 w-50 mx-auto">
       <input type="text" class="form-control" placeholder="Enter quiz code to take a quiz">
       <button class="btn btn-primary">Take Quiz</button>
     </div>
@@ -62,10 +68,10 @@
   <!-- QUIZZES -->
   <section class="container pb-5 text-center">
     <h2 class="fw-bold mb-4">QUIZZES</h2>
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
       <div class="col-md-4">
         <div class="card h-100">
-          <img src="assets/images/img1.jpg" class="card-img-top quiz-img" alt="Quiz 1">
+          <img src="assets/images/img1.jpg" class="card-img-top quiz-img" alt="Capitals of Country">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
               <h5 class="card-title mb-0">Capitals of Country</h5>
@@ -78,7 +84,7 @@
       </div>
       <div class="col-md-4">
         <div class="card h-100">
-          <img src="assets/images/img2.jpg" class="card-img-top quiz-img" alt="Quiz 2">
+          <img src="assets/images/img2.jpg" class="card-img-top quiz-img" alt="Capitals of Country">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
               <h5 class="card-title mb-0">Capitals of Country</h5>
@@ -91,7 +97,7 @@
       </div>
       <div class="col-md-4">
         <div class="card h-100">
-          <img src="assets/images/img3.jpg" class="card-img-top quiz-img" alt="Quiz 3">
+          <img src="assets/images/img3.jpg" class="card-img-top quiz-img" alt="Capitals of Country">
           <div class="card-body">
             <div class="d-flex justify-content-between align-items-center">
               <h5 class="card-title mb-0">Capitals of Country</h5>
@@ -107,9 +113,12 @@
 
   <!-- FOOTER -->
   <footer class="bg-light border-top py-5">
-    <div class="container d-flex flex-wrap justify-content-between">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
       <div class="col-md-4 mb-3">
-        <h4 class="fw-bold text-primary">Quizzes</h4>
+        <h4 class="fw-bold d-flex align-items-center text-primary">
+          <img src="assets/images/img0.jpg" alt="Logo" class="footer-logo me-2">
+          Quizzes
+        </h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor.</p>
       </div>
       <div class="col-md-3 mb-3">
@@ -125,10 +134,10 @@
         <h5>Contact</h5>
         <p>📧 congdin12021@gmail.com</p>
         <p>📞 +84 944 551 356</p>
-        <p>📍 123 Xuan Dinh, Bac Tu Liem, Ha Noi</p>
+        <p>📍 123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</p>
       </div>
     </div>
-    <div class="text-center text-muted mt-3">© May 2024 - ReactJS 19</div>
+    <div class="text-center text-muted mt-3">© September 2025</div>
   </footer>
 
   <!-- Bootstrap JS -->

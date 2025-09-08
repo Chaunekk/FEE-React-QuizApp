@@ -11,26 +11,46 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body class="d-flex flex-column" style="min-height:100vh;">
+<body class="d-flex flex-column min-vh-100">
 
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom px-3">
-    <a class="navbar-brand fw-bold text-primary" href="home.html">Quizzes</a>
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="quizzes.html">Quizzes</a></li>
-        <li class="nav-item"><a class="nav-link active fw-bold" href="quiz-management.html">Management</a></li>
-        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-      </ul>
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <img src="assets/images/img0.jpg" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+        <span class="fw-bold text-primary">Quizzes</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="quizzes.html">Quizzes</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="quiz-management.html">Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div id="authButtons" class="d-none ms-3">
+          <a href="#" class="btn btn-outline-primary btn-sm me-2">Login</a>
+          <a href="#" class="btn btn-primary btn-sm">Register</a>
+        </div>
+        <div id="userMenu" class="dropdown ms-3">
+          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="usernameDisplay">Lan Chau</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Change Password</a></li>
+            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
     </div>
-    <img src="assets/images/avatar.png" alt="user" class="rounded-circle ms-3" width="40">
   </nav>
 
   <!-- DASHBOARD -->
   <div class="d-flex flex-grow-1">
-    
+
     <!-- SIDEBAR -->
     <aside class="bg-light border-end p-3" style="width: 250px;">
       <h5 class="fw-bold mb-4">Menu</h5>
@@ -60,7 +80,6 @@
 
     <!-- MAIN CONTENT -->
     <main class="flex-fill p-4">
-
       <!-- PAGE TITLE -->
       <h4 class="fw-bold mb-4">Quiz Management</h4>
 
@@ -69,15 +88,18 @@
         <div class="card-body d-flex align-items-end gap-3">
           <div class="flex-grow-1">
             <label class="form-label">Name</label>
-            <input type="text" class="form-control" placeholder="Enter quiz name to search">
+            <input type="text" class="form-control" placeholder="Enter quiz name to search" id="searchName">
           </div>
           <div>
             <label class="form-label">Status</label><br>
-            <input type="checkbox"> Active
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="statusCheck" checked>
+              <label class="form-check-label" for="statusCheck">Active</label>
+            </div>
           </div>
           <div class="ms-auto">
-            <button class="btn btn-secondary me-2">Clear</button>
-            <button class="btn btn-primary">Search</button>
+            <button class="btn btn-secondary me-2" id="clearSearch">Clear</button>
+            <button class="btn btn-primary" id="searchBtn">Search</button>
           </div>
         </div>
       </div>
@@ -85,46 +107,62 @@
       <!-- QUIZ LIST -->
       <div class="card mb-4">
         <div class="card-body">
-          <h5 class="fw-bold mb-3">Quiz List</h5>
-          <table class="table table-bordered align-middle">
-            <thead class="table-light">
-              <tr>
-                <th>Header</th>
-                <th>Description</th>
-                <th>Duration</th>
-                <th>Questions</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><img src="assets/images/quiz1.jpg" width="60" class="rounded"></td>
-                <td>Capitals of Country</td>
-                <td>15m</td>
-                <td>7</td>
-                <td>Yes</td>
-                <td>
-                  <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
-                  <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                </td>
-              </tr>
-              <tr>
-                <td><img src="assets/images/quiz2.jpg" width="60" class="rounded"></td>
-                <td>Inventors and Inventions</td>
-                <td>20m</td>
-                <td>10</td>
-                <td>Yes</td>
-                <td>
-                  <button class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i></button>
-                  <button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="d-flex justify-content-between align-items-center">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="fw-bold">Quiz List</h5>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addQuizModal">+ Create</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered align-middle" id="quizTable">
+              <thead class="table-light">
+                <tr>
+                  <th>Header</th>
+                  <th>Description</th>
+                  <th>Duration</th>
+                  <th>Questions</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><img src="assets/images/quiz1.jpg" width="60" class="rounded"></td>
+                  <td>Capitals of Country</td>
+                  <td>15m</td>
+                  <td>7</td>
+                  <td>Yes</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary edit-btn" data-bs-toggle="modal" data-bs-target="#editQuizModal"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="assets/images/quiz2.jpg" width="60" class="rounded"></td>
+                  <td>Inventors and Inventions</td>
+                  <td>20m</td>
+                  <td>10</td>
+                  <td>Yes</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary edit-btn" data-bs-toggle="modal" data-bs-target="#editQuizModal"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+                <tr>
+                  <td><img src="assets/images/quiz3.jpg" width="60" class="rounded"></td>
+                  <td>Countries of the World</td>
+                  <td>15m</td>
+                  <td>10</td>
+                  <td>Yes</td>
+                  <td>
+                    <button class="btn btn-sm btn-outline-primary edit-btn" data-bs-toggle="modal" data-bs-target="#editQuizModal"><i class="bi bi-pencil"></i></button>
+                    <button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-3">
             <div>Items per page:
-              <select class="form-select d-inline-block w-auto">
+              <select class="form-select d-inline-block w-auto" id="itemsPerPage">
                 <option>10</option>
                 <option>20</option>
                 <option>50</option>
@@ -132,48 +170,99 @@
             </div>
             <nav>
               <ul class="pagination mb-0">
-                <li class="page-item"><a class="page-link" href="#">«</a></li>
-                <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">»</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="prevPage">«</a></li>
+                <li class="page-item"><a class="page-link active" href="#" id="page1">1</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="page2">2</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="page3">3</a></li>
+                <li class="page-item"><a class="page-link" href="#" id="nextPage">»</a></li>
               </ul>
             </nav>
+            <div>1-10 of 32</div>
           </div>
         </div>
       </div>
 
-      <!-- ADD QUIZ -->
-      <div class="card mb-4">
-        <div class="card-body">
-          <h5 class="fw-bold mb-3">Add Quiz</h5>
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Title</label>
-              <input type="text" class="form-control" placeholder="Enter quiz title">
+      <!-- ADD QUIZ MODAL -->
+      <div class="modal fade" id="addQuizModal" tabindex="-1" aria-labelledby="addQuizModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addQuizModalLabel">Add Quiz</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-md-6">
-              <label class="form-label">Description</label>
-              <textarea class="form-control" placeholder="Enter description"></textarea>
+            <div class="modal-body">
+              <form class="row g-3" id="addQuizForm">
+                <div class="col-md-6">
+                  <label class="form-label">Title</label>
+                  <input type="text" class="form-control" placeholder="Enter quiz title" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Description</label>
+                  <textarea class="form-control" placeholder="Enter description" required></textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Duration</label>
+                  <input type="text" class="form-control" placeholder="Enter quiz duration" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Thumbnail URL</label>
+                  <input type="text" class="form-control" placeholder="Enter thumbnail URL" required>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="addQuizActive" checked>
+                    <label class="form-check-label" for="addQuizActive">Active</label>
+                  </div>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
             </div>
-            <div class="col-md-4">
-              <label class="form-label">Duration</label>
-              <input type="text" class="form-control" placeholder="Enter quiz duration">
+          </div>
+        </div>
+      </div>
+
+      <!-- EDIT QUIZ MODAL -->
+      <div class="modal fade" id="editQuizModal" tabindex="-1" aria-labelledby="editQuizModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="editQuizModalLabel">Edit Quiz</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-md-4">
-              <label class="form-label">Thumbnail URL</label>
-              <input type="text" class="form-control" placeholder="Enter thumbnail URL">
+            <div class="modal-body">
+              <form class="row g-3" id="editQuizForm">
+                <div class="col-md-6">
+                  <label class="form-label">Title</label>
+                  <input type="text" class="form-control" placeholder="Enter quiz title" required>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Description</label>
+                  <textarea class="form-control" placeholder="Enter description" required></textarea>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Duration</label>
+                  <input type="text" class="form-control" placeholder="Enter quiz duration" required>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Thumbnail URL</label>
+                  <input type="text" class="form-control" placeholder="Enter thumbnail URL" required>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="editQuizActive" checked>
+                    <label class="form-check-label" for="editQuizActive">Active</label>
+                  </div>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
             </div>
-            <div class="col-md-4 d-flex align-items-end">
-              <div>
-                <input type="checkbox" id="quizActive"> <label for="quizActive">Active</label>
-              </div>
-            </div>
-            <div class="col-12 d-flex justify-content-end gap-2">
-              <button type="reset" class="btn btn-secondary">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
 
@@ -181,61 +270,82 @@
       <div class="card mb-4">
         <div class="card-body">
           <h5 class="fw-bold mb-3">Question List</h5>
-          <table class="table table-bordered align-middle">
-            <thead class="table-light">
-              <tr>
-                <th>Content</th>
-                <th>Type</th>
-                <th>Answers</th>
-                <th>Order</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Who is the inventor of the airplane?</td>
-                <td>MultipleChoice</td>
-                <td>4</td>
-                <td>1</td>
-                <td>Yes</td>
-                <td><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td>
-              </tr>
-              <tr>
-                <td>What is the capital of France?</td>
-                <td>SingleChoice</td>
-                <td>4</td>
-                <td>4</td>
-                <td>Yes</td>
-                <td><button class="btn btn-sm btn-outline-danger"><i class="bi bi-trash"></i></button></td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <div></div>
+            <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addQuestionModal">+ Add</button>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered align-middle" id="questionTable">
+              <thead class="table-light">
+                <tr>
+                  <th>Content</th>
+                  <th>Type</th>
+                  <th>Answers</th>
+                  <th>Order</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Who is the inventor of the airplane?</td>
+                  <td>MultipleChoice</td>
+                  <td>4</td>
+                  <td>1</td>
+                  <td>Yes</td>
+                  <td><button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                <tr>
+                  <td>What is the capital of France?</td>
+                  <td>SingleChoice</td>
+                  <td>4</td>
+                  <td>4</td>
+                  <td>Yes</td>
+                  <td><button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button></td>
+                </tr>
+                <tr>
+                  <td>Where is Viet Nam?</td>
+                  <td>MultipleChoice</td>
+                  <td>4</td>
+                  <td>3</td>
+                  <td>Yes</td>
+                  <td><button class="btn btn-sm btn-outline-danger delete-btn"><i class="bi bi-trash"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
-      <!-- ADD QUESTION -->
-      <div class="card">
-        <div class="card-body">
-          <h5 class="fw-bold mb-3">Add Question</h5>
-          <form class="row g-3">
-            <div class="col-md-6">
-              <label class="form-label">Question Type</label>
-              <select class="form-select">
-                <option>Select Question Type</option>
-                <option>MultipleChoice</option>
-                <option>SingleChoice</option>
-              </select>
+      <!-- ADD QUESTION MODAL -->
+      <div class="modal fade" id="addQuestionModal" tabindex="-1" aria-labelledby="addQuestionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="addQuestionModalLabel">Add Question</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="col-md-6">
-              <label class="form-label">Order</label>
-              <input type="number" class="form-control" placeholder="Enter order of question in quiz">
+            <div class="modal-body">
+              <form class="row g-3" id="addQuestionForm">
+                <div class="col-md-6">
+                  <label class="form-label">Question Type</label>
+                  <select class="form-select" id="questionType" required>
+                    <option value="">Select Question Type</option>
+                    <option value="MultipleChoice">MultipleChoice</option>
+                    <option value="SingleChoice">SingleChoice</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">Order</label>
+                  <input type="number" class="form-control" placeholder="Enter order of question in quiz" id="questionOrder" required>
+                </div>
+                <div class="col-12 text-end">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
             </div>
-            <div class="col-12 d-flex justify-content-end gap-2">
-              <button type="reset" class="btn btn-secondary">Cancel</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
 
@@ -243,29 +353,29 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-light border-top py-4 mt-4">
+  <footer class="bg-light border-top py-4 mt-auto">
     <div class="container d-flex justify-content-between">
       <div>
         <h5 class="fw-bold text-primary">Quizzes</h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor.</p>
       </div>
       <div>
         <h6>Menu</h6>
         <ul class="list-unstyled">
-          <li><a href="home.html">Home</a></li>
-          <li><a href="quizzes.html">Quizzes</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="home.html" class="text-decoration-none text-dark">Home</a></li>
+          <li><a href="quizzes.html" class="text-decoration-none text-dark">Quizzes</a></li>
+          <li><a href="about.html" class="text-decoration-none text-dark">About</a></li>
+          <li><a href="contact.html" class="text-decoration-none text-dark">Contact</a></li>
         </ul>
       </div>
       <div>
         <h6>Contact</h6>
-        <p>📧 email@domain.com</p>
+        <p>📧 congdin12021@gmail.com</p>
         <p>📞 +84 944 551 356</p>
-        <p>📍 Ha Noi, Viet Nam</p>
+        <p>📍 123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</p>
       </div>
     </div>
-    <div class="text-center text-muted mt-3">© May 2024 - ReactJS 19</div>
+    <div class="text-center text-muted mt-3">© September 2025</div>
   </footer>
 
   <!-- JS -->
