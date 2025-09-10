@@ -1,6 +1,100 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.login-hero {
+  background: url('assets/images/img4.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: calc(100vh - 56px - 80px); /* Adjust for navbar (56px) and footer (80px) */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.login-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  z-index: 1;
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white card */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-card .card-body {
+  padding: 2rem;
+}
+
+.login-card .form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.login-card .form-control {
+  border-radius: 0.25rem;
+}
+
+.login-card .btn-primary {
+  border-radius: 0.25rem;
+}
+
+.register-hero {
+  background: url('assets/images/img4.jpg') no-repeat center center;
+  background-size: cover;
+  min-height: calc(100vh - 56px - 80px); /* Adjust for navbar (56px) and footer (80px) */
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay for readability */
+  z-index: 1;
+}
+
+.register-card {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white card */
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.register-card .card-body {
+  padding: 2rem;
+}
+
+.register-card .form-label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.register-card .form-control {
+  border-radius: 0.25rem;
+}
+
+.register-card .btn-primary {
+  border-radius: 0.25rem;
 }
 
 .navbar-brand {
@@ -70,7 +164,7 @@ footer {
   object-fit: cover;
 }
 
-/* Custom styles for hero section image, if not using a specific image file */
+/* Custom styles for hero section, if not using a specific image file */
 .hero-image-placeholder {
   width: 250px;
   height: 250px;
@@ -127,6 +221,7 @@ footer {
 #editQuestionForm .form-check-label {
   margin-left: 5px;
 }
+
 /* Role Management Specific Styles */
 #roleTable {
   width: 100%;
@@ -164,6 +259,7 @@ footer {
 #editRoleForm .form-check-label {
   margin-left: 5px;
 }
+
 /* About Page Specific Styles */
 .about-hero {
   background-color: #f8f9fa;
@@ -186,67 +282,23 @@ footer {
   object-fit: cover;
 }
 
+/* Contact Page Specific Styles */
+.contact-card img {
+  max-height: 200px;
+  object-fit: cover;
+}
+
 @media (max-width: 768px) {
-  .about-hero .row {
-    flex-direction: column-reverse;
-    text-align: center;
+  .login-hero {
+    min-height: calc(100vh - 56px - 80px); /* Adjust for mobile */
   }
-  .about-hero img {
-    max-width: 100%;
-    margin-bottom: 20px;
+  .login-card .card-body {
+    padding: 1.5rem;
   }
-  .team-card img {
-    height: 150px;
+  .register-hero {
+    min-height: calc(100vh - 56px - 80px); /* Adjust for mobile */
+  }
+  .register-card .card-body {
+    padding: 1.5rem;
   }
 }
-/* ========== Background banner with question-mark image ========== */
-    .register-hero {
-      background-image: url('assets/images/question-mark.png'); /* <-- đặt ảnh của bạn ở đây */
-      background-size: cover;
-      background-position: center center;
-      background-repeat: no-repeat;
-      position: relative;
-      min-height: 72vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1rem;
-    }
-
-    /* overlay để làm dịu ảnh, giúp card nổi hơn */
-    .register-hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.28); /* đổi opacity nếu cần */
-      z-index: 0;
-    }
-
-    /* nội dung card nằm trên overlay */
-    .register-hero .card {
-      position: relative;
-      z-index: 1;
-    }
-
-    .register-card {
-      border-radius: 14px;
-      box-shadow: 0 14px 40px rgba(0,0,0,0.35);
-      background: rgba(255,255,255,0.98);
-    }
-
-    .register-card .card-title {
-      font-weight: 700;
-      font-size: 1.3rem;
-    }
-
-    /* khi màn nhỏ, lùi padding */
-    @media (max-width: 576px) {
-      .register-hero { padding: 2rem 0.5rem; min-height: 85vh; background-position: center top; }
-      .register-card { margin: 0 8px; }
-    }
-
-    /* footer nhỏ gọn */
-    footer .fw-bold.text-primary { color: #0d6efd !important; }
-
-    /* nhỏ gọn cho link login/register khi trạng thái chưa đăng nhập */
-    #authButtons { display: none; } /* mặc định ẩn, script sẽ bật nếu cần */

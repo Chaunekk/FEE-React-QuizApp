@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const logoutBtn = document.getElementById('logoutBtn');
     const quizCardsContainer = document.getElementById('quizCardsContainer');
-    const managementLink = document.querySelector('a[href="user-management.html"]');
+    const managementLink = document.querySelector('a[href="quizManagement.html"]');
     const searchName = document.getElementById('searchName');
     const searchContent = document.getElementById('searchContent');
     const statusCheck = document.getElementById('statusCheck');
@@ -52,21 +52,19 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             try {
                 const emailInput = document.getElementById('loginEmail');
-                if (!emailInput) throw new Error('Login email input not found');
+                const passwordInput = document.getElementById('loginPassword');
+                if (!emailInput || !passwordInput) throw new Error('Login inputs not found');
                 const email = emailInput.value.trim();
-                if (!email) throw new Error('Email is required');
+                const password = passwordInput.value.trim();
+                if (!email || !password) throw new Error('Email and password are required');
 
                 currentUser = email.split('@')[0] || 'User';
                 isLoggedIn = true;
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('currentUser', currentUser);
                 updateAuthUI();
-
-                const loginModal = document.getElementById('loginModal');
-                if (loginModal) {
-                    const modal = bootstrap.Modal.getInstance(loginModal);
-                    if (modal) modal.hide();
-                }
+                alert('Login successful! Redirecting to home page.');
+                window.location.href = 'home.html';
             } catch (error) {
                 console.error('Login error:', error.message);
                 alert('Login failed: ' + error.message);
@@ -355,16 +353,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const currentDateElement = document.getElementById('currentDate');
     if (currentDateElement) {
         currentDateElement.textContent = now.toLocaleString('vi-VN', { dateStyle: 'long', timeStyle: 'short' });
-    }
-
-    // Demo: Simulate login state (replace with actual logic)
-    if (isLoggedIn) {
-        if (authButtons) authButtons.classList.add('d-none');
-        if (userMenu) userMenu.classList.remove('d-none');
-        if (usernameDisplay) usernameDisplay.textContent = currentUser;
-    } else {
-        if (authButtons) authButtons.classList.remove('d-none');
-        if (userMenu) userMenu.classList.add('d-none');
     }
 
     // Initial UI update and quiz loading
