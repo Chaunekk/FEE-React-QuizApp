@@ -15,12 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const userTable = document.getElementById('userTable');
     const quizTable = document.getElementById('quizTable');
     const questionTable = document.getElementById('questionTable');
+    const roleTable = document.getElementById('roleTable');
     const addUserForm = document.getElementById('addUserForm');
     const editUserForm = document.getElementById('editUserForm');
     const addQuizForm = document.getElementById('addQuizForm');
     const editQuizForm = document.getElementById('editQuizForm');
     const addQuestionForm = document.getElementById('addQuestionForm');
     const editQuestionForm = document.getElementById('editQuestionForm');
+    const addRoleForm = document.getElementById('addRoleForm');
+    const editRoleForm = document.getElementById('editRoleForm');
+    const registerForm = document.getElementById('registerForm');
 
     // State Management
     let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
@@ -267,6 +271,100 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log('Edit Question:', Object.fromEntries(formData));
             bootstrap.Modal.getInstance(document.getElementById('editQuestionModal')).hide();
         });
+    }
+
+    // Role Management Interactions (for roleManagement.html)
+    if (roleTable) {
+        document.querySelectorAll('.edit-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const row = button.closest('tr');
+                const form = document.getElementById('editRoleForm');
+                if (form) {
+                    form.querySelector('input[placeholder="Enter role name"]').value = row.cells[0].textContent;
+                    form.querySelector('textarea[placeholder="Enter role description"]').value = row.cells[1].textContent;
+                    form.querySelector('#editRoleActive').checked = row.cells[2].textContent === 'Yes';
+                }
+            });
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete this role?')) {
+                    button.closest('tr').remove();
+                }
+            });
+        });
+    }
+
+    // Add Role Form Handling (for roleManagement.html)
+    if (addRoleForm) {
+        addRoleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(addRoleForm);
+            console.log('Add Role:', Object.fromEntries(formData));
+            bootstrap.Modal.getInstance(document.getElementById('addRoleModal')).hide();
+        });
+    }
+
+    // Edit Role Form Handling (for roleManagement.html)
+    if (editRoleForm) {
+        editRoleForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(editRoleForm);
+            console.log('Edit Role:', Object.fromEntries(formData));
+            bootstrap.Modal.getInstance(document.getElementById('editRoleModal')).hide();
+        });
+    }
+
+    // Handle Register
+    if (registerForm) {
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            try {
+                const firstName = document.getElementById('registerFirstName').value.trim();
+                const lastName = document.getElementById('registerLastName').value.trim();
+                const email = document.getElementById('registerEmail').value.trim();
+                const password = document.getElementById('registerPassword').value.trim();
+                const confirmPassword = document.getElementById('registerConfirm').value.trim();
+                const phone = document.getElementById('registerPhone').value.trim();
+                const agreeTerms = document.getElementById('agreeTerms').checked;
+
+                if (!firstName || !lastName || !email || !password || !confirmPassword || !phone || !agreeTerms) {
+                    throw new Error('All fields and terms agreement are required');
+                }
+                if (password !== confirmPassword) {
+                    throw new Error('Passwords do not match');
+                }
+
+                currentUser = `${firstName} ${lastName}`;
+                isLoggedIn = true;
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('currentUser', currentUser);
+                updateAuthUI();
+                alert('Registration successful! Redirecting to home page.');
+                window.location.href = 'home.html';
+            } catch (error) {
+                console.error('Registration error:', error.message);
+                alert('Registration failed: ' + error.message);
+            }
+        });
+    }
+
+    // Demo: Display current date and time in footer
+    const now = new Date();
+    const currentDateElement = document.getElementById('currentDate');
+    if (currentDateElement) {
+        currentDateElement.textContent = now.toLocaleString('vi-VN', { dateStyle: 'long', timeStyle: 'short' });
+    }
+
+    // Demo: Simulate login state (replace with actual logic)
+    if (isLoggedIn) {
+        if (authButtons) authButtons.classList.add('d-none');
+        if (userMenu) userMenu.classList.remove('d-none');
+        if (usernameDisplay) usernameDisplay.textContent = currentUser;
+    } else {
+        if (authButtons) authButtons.classList.remove('d-none');
+        if (userMenu) userMenu.classList.add('d-none');
     }
 
     // Initial UI update and quiz loading

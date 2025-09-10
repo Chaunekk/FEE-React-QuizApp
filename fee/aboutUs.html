@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .about-hero {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+    .team-card {
+      transition: transform 0.2s;
+    }
+    .team-card:hover {
+      transform: scale(1.05);
+    }
+    .team-card img {
+      border-radius: 10px 10px 0 0;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom px-3">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="home.html">
+        <img src="assets/images/img0.jpg" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+        <span class="fw-bold text-primary">Quizzes</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="quizzes.html">Quizzes</a></li>
+          <li class="nav-item"><a class="nav-link" href="quiz-management.html">Quiz Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="question-management.html">Question Management</a></li>
+          <li class="nav-item"><a class="nav-link" href="roleManagement.html">Role Management</a></li>
+          <li class="nav-item"><a class="nav-link active fw-bold" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <div id="authButtons" class="d-none ms-3">
+          <a href="#" class="btn btn-outline-primary btn-sm me-2">Login</a>
+          <a href="#" class="btn btn-primary btn-sm">Register</a>
+        </div>
+        <div id="userMenu" class="dropdown ms-3">
+          <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" id="userDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="usernameDisplay">Lan Chau</span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="#">Change Password</a></li>
+            <li><a class="dropdown-item" href="#" id="logoutBtn">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <div class="container about-hero">
+    <div class="row align-items-center">
+      <div class="col-md-6 text-center">
+        <img src="assets/images/img1.jpg" class="img-fluid rounded" alt="About Banner" style="max-width: 400px;">
+      </div>
+      <div class="col-md-6">
+        <h1 class="fw-bold mb-3">About Us</h1>
+        <p class="lead text-muted">Discover the story behind Quizzes and our dedication to transforming education through interactive learning.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT CONTENT -->
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h2 class="fw-bold mb-4">Our Mission</h2>
+        <p>
+          Quizzes was founded in 2023 with a vision to revolutionize learning through engaging and interactive quizzes. Our mission is to empower users—students, educators, and lifelong learners—with tools to explore knowledge, create content, and build communities. We strive to make education accessible, enjoyable, and impactful for everyone.
+        </p>
+        <p>
+          Our dedicated team of developers, educators, and designers works tirelessly to enhance the platform, ensuring it meets diverse needs and fosters a love for learning.
+        </p>
+        <h2 class="fw-bold mb-4 mt-5">Meet Our Team</h2>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="card team-card h-100">
+              <img src="assets/images/img2.jpg" class="card-img-top quiz-img" alt="Lan Chau">
+              <div class="card-body text-center">
+                <h5 class="card-title">Lan Chau</h5>
+                <p class="card-text">Lead Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card team-card h-100">
+              <img src="assets/images/img3.jpg" class="card-img-top quiz-img" alt="Minh Nguyen">
+              <div class="card-body text-center">
+                <h5 class="card-title">Minh Nguyen</h5>
+                <p class="card-text">Education Consultant</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card team-card h-100">
+              <img src="assets/images/img4.jpg" class="card-img-top quiz-img" alt="Huyen Tran">
+              <div class="card-body text-center">
+                <h5 class="card-title">Huyen Tran</h5>
+                <p class="card-text">UI/UX Designer</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card team-card h-100">
+              <img src="assets/images/img5.jpg" class="card-img-top quiz-img" alt="Duc Pham">
+              <div class="card-body text-center">
+                <h5 class="card-title">Duc Pham</h5>
+                <p class="card-text">Content Creator</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h2 class="fw-bold mb-4 mt-5">Our Values</h2>
+        <ul class="list-unstyled">
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Accessibility: Learning for all, everywhere.</li>
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Innovation: Pioneering new educational tools.</li>
+          <li class="mb-3"><i class="bi bi-check-circle text-success me-2"></i>Community: Connecting learners globally.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-light border-top py-4 mt-auto">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <h5 class="fw-bold text-primary">Quizzes</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed do eiusmod tempor.</p>
+      </div>
+      <div>
+        <h6>Menu</h6>
+        <ul class="list-unstyled">
+          <li><a href="home.html" class="text-decoration-none text-dark">Home</a></li>
+          <li><a href="quizzes.html" class="text-decoration-none text-dark">Quizzes</a></li>
+          <li><a href="about.html" class="text-decoration-none text-dark">About</a></li>
+          <li><a href="contact.html" class="text-decoration-none text-dark">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h6>Contact</h6>
+        <p>📧 congdin12021@gmail.com</p>
+        <p>📞 +84 944 551 356</p>
+        <p>📍 123 Xuan Dinh, Bac Tu Liem, Ha Noi, Viet Nam</p>
+      </div>
+    </div>
+    <div class="text-center text-muted mt-3">© September 09, 2025, 12:09 AM +07</div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
